@@ -1,0 +1,28 @@
+{% extends 'todo/layout.html' %}
+
+{% block content %}
+<div class="container"> {# Contenedor principal de Bootstrap #}
+    <h1>Lista de mis actividades</h1>
+    <a href="{% url 'agregar' %}" class="btn btn-success">Agregar nueva tarea</a>
+    <table class="table"> {# Tabla de Bootstrap #}
+        <thead>
+            <tr>
+                <th>Actividad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarea in tareas %}
+            <tr>
+                <td>{{ tarea }}</td>
+                <td>
+                    <a href="{%url 'eliminar' tarea.id %}" class="btn btn-danger">Eliminar</a> {# Botón de Bootstrap #}
+                    <a href="{%url 'editar' tarea.id %}" class="btn btn-primary">Editar</a> {# Botón de Bootstrap #}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+</div>
+{% endblock %}

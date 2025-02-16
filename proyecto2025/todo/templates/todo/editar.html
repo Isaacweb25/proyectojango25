@@ -1,0 +1,33 @@
+{% extends 'todo/layout.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Editar</h1>
+
+    <form method="post">
+
+        {% csrf_token %}
+        <div class="mb-3"
+            <label for="{{ form.nombre_for_label}}" class="form-label"></label>
+            {{form.nombre}}
+            {% if form.nombre.errors %}
+
+                <div class="invalido">
+
+                    {{form.nommbre.errors}}
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        {{ form }}
+        <br>
+        <button type="submit" class="btn btn-success">Editar</button>
+
+
+    </form>
+<a href="{% url 'home' %}" class="btn btn-secondary mt-3">Volver a la lista</a>
+</div>
+{% endblock %}
